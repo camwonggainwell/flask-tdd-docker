@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "flask-tdd-docker"
+version = "0.1.0"
+description = "sample project for TDD flask app"
+authors = ["Cameron Wong <cameron.wong@gainwelltechnologies.com>"]
+readme = "README.md"
+packages = [{include = "flask_tdd_docker"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+flask = "2.1.1"
+flask-restx = "0.5.1"
+werkzeug = "2.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
