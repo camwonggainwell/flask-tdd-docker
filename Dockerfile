@@ -12,6 +12,11 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV POETRY_VERSION 1.2.2
 
+# install system dependencies
+RUN apt-get update \
+  && apt-get -y install netcat gcc postgresql \
+  && apt-get clean
+
 # install poetry
 RUN pip install "poetry==$POETRY_VERSION"
 
@@ -28,5 +33,8 @@ RUN poetry config virtualenvs.create false && poetry install --no-root
 # add app
 COPY . .
 
-# run server
-CMD poetry run python3 manage.py run -h 0.0.0.0
+# run server via entrypoint.sh
+# add entrypoint.sh
+COPY ./entrypoint.sh .
+RUN chmod +x /usr/src/app/entrypoint.sh
+RUN chmod 777 /usr/src/app/entrypoint.sh

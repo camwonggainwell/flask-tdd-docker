@@ -13,6 +13,8 @@ flask-restx = "0.5.1"
 werkzeug = "2.1.2"
 docker = "^6.0.1"
 docker-compose = "^1.29.2"
+flask-sqlalchemy = "2.5.1"
+psycopg2-binary = "2.9.3"
 
 
 [build-system]
